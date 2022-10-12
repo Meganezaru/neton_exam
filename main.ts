@@ -1,7 +1,3 @@
-export function add(a: number, b: number): number {
-  return a + b;
-}
-
 export function calc_max_value(limit_weight: number, weight: number[], value: number[]): number {
   const item_count = weight.length;
 

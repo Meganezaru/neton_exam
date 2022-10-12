@@ -1,9 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.159.0/testing/asserts.ts";
-import { add, calc_max_value } from "./main.ts";
-
-Deno.test(function addTest() {
-  assertEquals(add(2, 3), 5);
-});
+import { calc_max_value } from "./main.ts";
 
 Deno.test("Wに収まる品物が無い", () =>{
   const limit_weight = 1;
@@ -47,4 +43,18 @@ Deno.test("商品が100個ある", () =>{
   const value: Array<number> = Array(100);
   value.fill(1000);
   assertEquals(calc_max_value(limit_weight, weight, value), 10000);
+});
+
+Deno.test("追加テストパターン1", () =>{
+  const limit_weight = 55;
+  const weight: Array<number> = [...Array(100)].map((_, index) => (index + 1));
+  const value: Array<number> =  [...Array(100)].map((_, index) => (index + 1));
+  assertEquals(calc_max_value(limit_weight, weight, value), 55);
+});
+
+Deno.test("追加テストパターン2", () =>{
+  const limit_weight = 55;
+  const weight: Array<number> = [...Array(100)].map((_, index) => (index + 1));
+  const value: Array<number> =  [...Array(100)].map((_, index) => (index * 2));
+  assertEquals(calc_max_value(limit_weight, weight, value), 108);
 });
