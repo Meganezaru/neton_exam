@@ -11,3 +11,10 @@ Deno.test("Wに収まる品物が無い", () =>{
   const value = [20, 30];
   assertEquals(calc_max_value(limit_weight, weight, value), 0);
 });
+
+Deno.test("Wに収まる品物が1つだけある", () =>{
+  const limit_weight = 10;
+  const weight = [10, 10];
+  const value = [20, 30];
+  assertEquals(calc_max_value(limit_weight, weight, value), 30);
+});
